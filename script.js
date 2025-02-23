@@ -91,11 +91,14 @@ scissorsButton.textContent = "scissors";
 const scoreDiv = document.createElement("div");
 scoreDiv.textContent = "Score: " + playerScore + "(YOU) " + computerScore + "(COMP)";
 
+const victoryDiv = document.createElement("div");
+
 const body = document.querySelector("body");
 body.appendChild(rockButton);
 body.appendChild(paperButton);
 body.appendChild(scissorsButton);
 body.appendChild(scoreDiv);
+body.appendChild(victoryDiv);
 
 const button = document.querySelectorAll("#buttons");
 
@@ -107,11 +110,18 @@ button.forEach((butts) => {
         if (playerScore < 5 && computerScore < 5) {
             playRound(humanChoice, computerChoice);
             scoreDiv.textContent = "Score: " + playerScore + "(YOU) " + computerScore + "(COMP)";
+            if (playerScore == 5) {
+                victoryDiv.textContent = "huh... didn't think you had it in you."
+            }
+            else if (computerScore == 5) {
+                victoryDiv.textContent = "another day another number in the system"
+            }
         }
         console.log("player's: " + playerScore);
         console.log("comps: " + computerScore);
     })
 })
+
 
 
 
